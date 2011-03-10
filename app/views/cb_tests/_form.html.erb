@@ -1,0 +1,49 @@
+<%= form_for(@cb_test) do |f| %>
+  <% if @cb_test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cb_test.errors.count, "error") %> prohibited this cb_test from being saved:</h2>
+
+      <ul>
+      <% @cb_test.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cb_number %><br />
+    <%= f.text_field :cb_number %>
+  </div>
+  <div class="field">
+    <%= f.label :tested_on %><br />
+    <%= f.datetime_select :tested_on %>
+  </div>
+  <div class="field">
+    <%= f.label :keypad %><br />
+    <%= f.check_box :keypad %>
+  </div>
+  <div class="field">
+    <%= f.label :key_light %><br />
+    <%= f.check_box :key_light %>
+  </div>
+  <div class="field">
+    <%= f.label :call_fn %><br />
+    <%= f.check_box :call_fn %>
+  </div>
+  <div class="field">
+    <%= f.label :DTMF %><br />
+    <%= f.check_box :DTMF %>
+  </div>
+  <div class="field">
+    <%= f.label :blue_light %><br />
+    <%= f.check_box :blue_light %>
+  </div>
+  <div class="field">
+    <%= f.label :response_test %><br />
+    <%= f.check_box :response_test %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

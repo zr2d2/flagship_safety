@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cb_num: 1
+  cb_type: MyString
+  latitude: 9.99
+  longitude: 9.99
+  notes: MyText
+
+two:
+  cb_num: 1
+  cb_type: MyString
+  latitude: 9.99
+  longitude: 9.99
+  notes: MyText

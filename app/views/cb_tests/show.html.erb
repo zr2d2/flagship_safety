@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cb number:</b>
+  <%= @cb_test.cb_number %>
+</p>
+
+<p>
+  <b>Tested on:</b>
+  <%= @cb_test.tested_on %>
+</p>
+
+<p>
+  <b>Keypad:</b>
+  <%= @cb_test.keypad %>
+</p>
+
+<p>
+  <b>Key light:</b>
+  <%= @cb_test.key_light %>
+</p>
+
+<p>
+  <b>Call fn:</b>
+  <%= @cb_test.call_fn %>
+</p>
+
+<p>
+  <b>Dtmf:</b>
+  <%= @cb_test.DTMF %>
+</p>
+
+<p>
+  <b>Blue light:</b>
+  <%= @cb_test.blue_light %>
+</p>
+
+<p>
+  <b>Response test:</b>
+  <%= @cb_test.response_test %>
+</p>
+
+
+<%= link_to 'Edit', edit_cb_test_path(@cb_test) %> |
+<%= link_to 'Back', cb_tests_path %>

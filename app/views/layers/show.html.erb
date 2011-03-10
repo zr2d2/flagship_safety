@@ -4,8 +4,9 @@
   var points_on_map; //Total number of objects on the map
 <% end %>
 <% content_for :js_ready do %>
-  <% Point.include_root_in_json = false %>
-  var midpoint = <%=raw midpoint(@layer.points).to_json() %>;
+  <% CallBox.include_root_in_json = false %>
+  <% logger.debug @points.to_yaml %>
+  //var midpoint = <%#=raw midpoint(@points).to_json() %>;
   
   map = setup_map(midpoint, 0);
   points_on_map = 0;
@@ -71,7 +72,7 @@
 <div class="mc-indent">
 	<h2 id="points">Points <%= link_to 'Add', new_layer_point_path(@layer), :class => "link-button" %></h2>
 	<div>
-	  <%= render :partial => 'points/index', :locals => {:points => @layer.points} %>
+	  <%= render :partial => 'points/index', :locals => {:points => @points} %>
 	</div>
 	<br />
   

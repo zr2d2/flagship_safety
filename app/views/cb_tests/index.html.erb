@@ -1,0 +1,37 @@
+<h1>Listing cb_tests</h1>
+
+<table>
+  <tr>
+    <th>Cb number</th>
+    <th>Tested on</th>
+    <th>Keypad</th>
+    <th>Key light</th>
+    <th>Call fn</th>
+    <th>Dtmf</th>
+    <th>Blue light</th>
+    <th>Response test</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cb_tests.each do |cb_test| %>
+  <tr>
+    <td><%= cb_test.cb_number %></td>
+    <td><%= cb_test.tested_on %></td>
+    <td><%= cb_test.keypad %></td>
+    <td><%= cb_test.key_light %></td>
+    <td><%= cb_test.call_fn %></td>
+    <td><%= cb_test.DTMF %></td>
+    <td><%= cb_test.blue_light %></td>
+    <td><%= cb_test.response_test %></td>
+    <td><%= link_to 'Show', cb_test %></td>
+    <td><%= link_to 'Edit', edit_cb_test_path(cb_test) %></td>
+    <td><%= link_to 'Destroy', cb_test, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cb test', new_cb_test_path %>

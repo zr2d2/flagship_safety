@@ -1,4 +1,8 @@
 Geo::Application.routes.draw do
+  resources :cb_tests
+
+  resources :call_boxes
+
   resources :layers do
     resources :points
     resources :paths

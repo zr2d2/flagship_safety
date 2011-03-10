@@ -14,6 +14,10 @@ class LayersController < ApplicationController
   # GET /layers/1.xml
   def show
     @layer = Layer.find(params[:id])
+    @points = @layer.call_boxes
+    if @points.nil?
+      @points = Crime_Alert.find_by_layer_id(id)
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,8 +25,8 @@ class LayersController < ApplicationController
       format.kml  # show.kml.builder
       format.js { render :json => @layer.to_json(
         :include => {
-          :points => {}, 
-          :paths => {
+           :points => {},
+           :paths => {
             :include => { :coords => {
               :only => [:position, :latitude, :longitude]
             }}

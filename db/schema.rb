@@ -1,15 +1,47 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# This file is auto-generated from the current state of the database. Instead 
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# Note that this schema.rb definition is the authoritative source for your 
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100722153142) do
+ActiveRecord::Schema.define(:version => 20110224213000) do
+
+  create_table "call_boxes", :force => true do |t|
+    t.integer  "cb_num"
+    t.string   "cb_type"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.text     "notes"
+    t.integer  "layer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cb_tests", :force => true do |t|
+    t.integer  "cb_number"
+    t.datetime "tested_on"
+    t.boolean  "keypad"
+    t.boolean  "key_light"
+    t.boolean  "call_fn"
+    t.boolean  "DTMF"
+    t.boolean  "blue_light"
+    t.boolean  "response_test"
+    t.boolean  "blue_light_flash"
+    t.boolean  "response"
+    t.string   "appearance"
+    t.string   "accessibility"
+    t.string   "visibility"
+    t.string   "area_lighting"
+    t.integer  "visible_cbs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "coords", :force => true do |t|
     t.decimal  "latitude",   :precision => 15, :scale => 10, :default => 0.0
@@ -17,6 +49,21 @@ ActiveRecord::Schema.define(:version => 20100722153142) do
     t.integer  "position"
     t.string   "line_type"
     t.integer  "line_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "crime_alerts", :force => true do |t|
+    t.text     "body"
+    t.datetime "happened"
+    t.string   "location"
+    t.text     "raw_data"
+    t.integer  "raw_id"
+    t.boolean  "legitimate"
+    t.integer  "type_id"
+    t.boolean  "processed"
+    t.integer  "latitude",   :limit => 10
+    t.integer  "longitude",  :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,16 +82,6 @@ ActiveRecord::Schema.define(:version => 20100722153142) do
     t.integer  "layer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "points", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "latitude",    :default => 0.0
-    t.decimal  "longitude",   :default => 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "layer_id"
   end
 
   create_table "polygons", :force => true do |t|

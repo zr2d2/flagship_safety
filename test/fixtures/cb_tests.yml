@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cb_number: 1
+  tested_on: 2011-01-30 20:34:48
+  keypad: false
+  key_light: false
+  call_fn: false
+  DTMF: false
+  blue_light: false
+  response_test: false
+
+two:
+  cb_number: 1
+  tested_on: 2011-01-30 20:34:48
+  keypad: false
+  key_light: false
+  call_fn: false
+  DTMF: false
+  blue_light: false
+  response_test: false

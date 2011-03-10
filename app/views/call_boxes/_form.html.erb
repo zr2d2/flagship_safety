@@ -1,0 +1,37 @@
+<%= form_for(@call_box) do |f| %>
+  <% if @call_box.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@call_box.errors.count, "error") %> prohibited this call_box from being saved:</h2>
+
+      <ul>
+      <% @call_box.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cb_num %><br />
+    <%= f.text_field :cb_num %>
+  </div>
+  <div class="field">
+    <%= f.label :cb_type %><br />
+    <%= f.text_field :cb_type %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
