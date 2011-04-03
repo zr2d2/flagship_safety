@@ -9,6 +9,12 @@ Geo::Application.routes.draw do
     resources :polygons
   end
 
+  resources :import_tables
+  post 'import_tables/:id' => 'import_tables#merge'
+
+  get "csv/import"
+  post "csv/import" => 'csv#upload'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

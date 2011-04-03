@@ -1,0 +1,56 @@
+<% content_for :title, @import_table.original_path %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Original path:</b>
+  <%= @import_table.original_path %>
+</p>
+
+<%= form_for :merge do |f| -%>
+  <label><%= 'Select a table for merging:' %></label>
+  <%= f.select(:table, @tables.collect { |t| [t, t] }, { :include_blank => true }, { :onchange => "mergeTableSelected();" }) %>
+  <%= f.submit "Merge", :disable_with => 'Merging...' %>
+  <table border="1" cellspacing="1" cellpadding="1">
+    <tr>
+      <% 0.upto(@column_index_max) do |column_index| %>
+        <th>
+          <%= f.select(column_index, []) %>
+        </th>
+      <% end %>
+    </tr>
+    <% 0.upto(@row_index_max) do |row_index| %>
+      <% row = @import_cells.select { |cell| cell.row_index == row_index } %>
+      <tr>
+        <% 0.upto(@column_index_max) do |column_index| %>
+          <td>
+            <%= row.select { |cell| cell.column_index == column_index }[0].contents %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end -%>
+
+<% content_for :js do %>
+  var columns = new Array();
+  <% for table in @tables -%>
+    <% for column in table.singularize.camelize.constantize.columns -%>
+      columns.push(new Array('<%= table %>', '<%= column.name %>'));
+    <% end -%>
+  <% end -%>
+  function mergeTableSelected() {
+    var o = $('select#merge_table option:selected');
+    $('th select option').remove();
+    $('th select').each(function(i, select) {
+      select.options.add(new Option());
+      $.each(columns, function(j, column) {
+        if (o.text() == column[0]) {
+          select.options.add(new Option(column[1]));
+        }
+      });
+    });
+  }
+<% end -%>
+
+<%= link_to 'Edit', edit_import_table_path(@import_table) %> |
+<%= link_to 'Back', import_tables_path %>

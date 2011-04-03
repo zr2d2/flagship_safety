@@ -1,0 +1,7 @@
+<% content_for :title, "Import a CSV File" %>
+<h1>Import a CSV File</h1>
+<p>Select a file to import</p>
+<%= form_for :upload, :html => { :multipart => true } do |f| -%>
+  <%= f.file_field :csv %>
+  <%= f.submit "Upload", :disable_with => 'Uploading...' %>
+<% end -%>
