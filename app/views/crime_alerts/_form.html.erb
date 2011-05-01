@@ -1,4 +1,4 @@
-<%= form_for([@layer, @call_box] ) do |f| %>
+<%= form_for(@call_box) do |f| %>
   <% if @call_box.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@call_box.errors.count, "error") %> prohibited this call_box from being saved:</h2>
@@ -26,10 +26,6 @@
   <div class="field">
     <%= f.label :longitude %><br />
     <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :layer_id %><br />
-    <%= f.text_field :layer_id %>
   </div>
   <div class="field">
     <%= f.label :notes %><br />

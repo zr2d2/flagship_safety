@@ -1,0 +1,9 @@
+<h1>Editing call_box</h1>
+
+<%= render 'form' %>
+
+          <td><%= link_to 'Show', call_box %></td>
+          <td><%= link_to 'Edit', edit_call_box_path(call_box) %></td>
+          <td><%= link_to 'Destroy', call_box, :confirm => 'Are you sure?', :method => :delete %></td>
+<%= link_to 'Show', @call_box %> |
+<%= link_to 'Back', call_boxes_path %>

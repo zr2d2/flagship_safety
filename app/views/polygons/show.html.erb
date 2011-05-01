@@ -1,6 +1,5 @@
 <% content_for :js_ready do %>
     <% 
-      Point.include_root_in_json = false
       Coord.include_root_in_json = false
       point = midpoint(@polygon.coords)
      %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cb num:</b>
+  <%= @call_box.cb_num %>
+</p>
+
+<p>
+  <b>Cb type:</b>
+  <%= @call_box.cb_type %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @call_box.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @call_box.longitude %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @call_box.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_call_box_path(@call_box) %> |
+<%= link_to 'Back', call_boxes_path %>

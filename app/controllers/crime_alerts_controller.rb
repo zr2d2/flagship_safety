@@ -1,4 +1,4 @@
-class CallBoxesController < ApplicationController
+class CrimeAlertsController < ApplicationController
   before_filter :get_layer
 
   # The before_filter action to get the current layer for
@@ -68,7 +68,7 @@ class CallBoxesController < ApplicationController
 
     respond_to do |format|
       if @call_box.update_attributes(params[:call_box])
-        format.html { redirect_to([@layer, @call_box], :notice => 'Call box was successfully updated.') }
+        format.html { redirect_to(@call_box, :notice => 'Call box was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

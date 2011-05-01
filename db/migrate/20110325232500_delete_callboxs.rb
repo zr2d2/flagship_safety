@@ -1,4 +1,4 @@
-class DeleteMigration < ActiveRecord::Migration
+class DeleteCallboxs < ActiveRecord::Migration
   def self.up
     drop_table :callboxs
   end

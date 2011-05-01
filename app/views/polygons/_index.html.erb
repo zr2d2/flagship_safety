@@ -20,9 +20,9 @@
   <td><%= polygon.updated_at.strftime('%D') unless polygon.updated_at.nil? %></td>
   <td>
     <span>
-     <%= link_to 'Edit', edit_layer_polygon_path(polygon.layer, polygon), :class => 'edit-link' %>
-     &nbsp;
-     <%= link_to 'Remove', layer_polygon_path(polygon.layer, polygon), :confirm => 'Are you sure you want to remove this polygon?', :method => :delete, :class => 'cancel-link' %>
+      <%= link_to 'Edit', edit_layer_polygon_path(polygon.layer, polygon), :class => 'edit-link' %>
+      &nbsp;
+      <%= link_to 'Remove', layer_polygon_path(polygon.layer, polygon), :confirm => 'Are you sure you want to remove this polygon?', :method => :delete, :class => 'cancel-link' %>
     </span>
   </td>
  </tr>

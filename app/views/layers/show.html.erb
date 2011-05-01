@@ -3,18 +3,17 @@
   var map; //The map!
   var points_on_map; //Total number of objects on the map
 <% end %>
+
 <% content_for :js_ready do %>
-  <% CallBox.include_root_in_json = false %>
-  <% logger.debug @points.to_yaml %>
-  //var midpoint = <%#=raw midpoint(@points).to_json() %>;
+  var midpoint = <%=raw midpoint(@layer.call_boxes, @layer.crime_alerts).to_json() %>;
   
   map = setup_map(midpoint, 0);
   points_on_map = 0;
   
   $.getJSON('<%= layer_path(:format => :js) %>', function(data) {
     var map_bounds = new google.maps.LatLngBounds();
-    $.each(data.layer.points, function(index, point){
-      marker = add_point_to_map(point, map);
+    $.each(data.layer.call_boxes, function(index, coord){
+      marker = add_point_to_map(coord, map);
       map_bounds.extend(marker.position);
       points_on_map++;
     });
@@ -70,12 +69,19 @@
 <br />
 
 <div class="mc-indent">
-	<h2 id="points">Points <%= link_to 'Add', new_layer_point_path(@layer), :class => "link-button" %></h2>
-	<div>
-	  <%= render :partial => 'points/index', :locals => {:points => @points} %>
-	</div>
-	<br />
-  
+
+  <h2 id="callboxes">Call Boxes <%= link_to 'Add', new_layer_call_box_path(@layer), :class => "link-button" %></h2>
+        <div>
+          <%= render :partial => 'call_boxes/index', :locals => {:call_boxes => @layer.call_boxes} %>
+        </div>
+        <br />
+
+  <h2 id="crimealerts">Crime Alerts <%= link_to 'Add', new_layer_crime_alert_path(@layer), :class => "link-button" %></h2>
+        <div>
+          <%= render :partial => 'crime_alerts/index', :locals => {:crime_alerts => @layer.crime_alerts} %>
+        </div>
+        <br />
+
   <h2 id="paths">Paths <%= link_to 'Add', new_layer_path_path(@layer), :class => "link-button" %></h2>
 	<div>
 	  <%= render :partial => 'paths/index', :locals => {:paths => @layer.paths} %>
@@ -89,4 +95,3 @@
 	<br />
 	
 </div>
-

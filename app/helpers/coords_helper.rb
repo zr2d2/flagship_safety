@@ -1,12 +1,12 @@
-module PointsHelper
+module CoordsHelper
 
   # Identify the midpoint of a series of points.
   # Uses a center of gravity technique, based off the 
   # cartesian coordinates for each point.
   # Logic from: http://www.geomidpoint.com/calculation.html
   def midpoint(points = [])
-    return Point.new(:name => "Midpoint", :latitude => 0, :longitude => 0) if points.empty?
-  
+    return Coord.new(:name => "Midpoint", :latitude => 0, :longitude => 0) if points.empty?
+
     x = y = z = 0
     points.each do |point|
       x += point.x
@@ -17,8 +17,8 @@ module PointsHelper
     longitude = Math.atan2(y, x).radians
     hypotenuse = Math.sqrt(x * x + y * y)
     latitude = Math.atan2(z, hypotenuse).radians
-    
-    Point.new(:name => "Midpoint", :latitude => latitude, :longitude => longitude)
+
+    Coord.new(:name => "Midpoint", :latitude => latitude, :longitude => longitude)
   end
 
 end

@@ -1,12 +1,23 @@
 <% content_for :js_ready do %>
-    <% CallBox.include_root_in_json = false %>
-    var call_box = <%=raw @call_box.to_json() %>;
-    
-    var map = setup_map(call_box, 13);
-    add_point_to_map(call_box, map);
+    <% point = @call_box %>
+    var point = <%=raw point.to_json() %>;
+
+    var map = setup_map(point, 1);
+    var polygon = new google.maps.Polygon();
+    var map_bounds = new google.maps.LatLngBounds();
+
+    polygon.setMap(map);
+
+    var coords = <%=raw @polygon.coords.to_json() %>;
+
+    $.each(coords, function(index, coord){
+      position = add_point_to_polygon(coord, polygon);
+      map_bounds.extend(position);
+    });
+    map.fitBounds(map_bounds);
 <% end %>
 
-<% content_for :title, @call_box.cb_num.to_s %>
+<% content_for :title, @call_box.name %>
 
 <h2 class="breadcrumb">
         <%= link_to "Home", root_path %>&nbsp;/&nbsp;
@@ -15,7 +26,7 @@
 
 <div class="main-title">
 
-        <%= @call_box.cb_num.to_s %>
+        <%= @call_box.name %>
 
         <%= map_canvas({:style => " height: 500px;"})%>
 
@@ -36,6 +47,6 @@
 		<%= @call_box.notes %>
                 <br />
 		<%= link_to 'Edit', edit_layer_call_box_path(@layer, @call_box) %> |
-		<%= link_to 'Back', layer_path(@layer) %>
+		<%= link_to 'Back', layer_path(1) %>
         </span>
 </div>

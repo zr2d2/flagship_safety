@@ -1,9 +1,0 @@
-<% content_for :title, "Editing #{@point.name}" %>
-<h1 class="main-title">
-	Editing Point
-	<span><%= link_to 'Cancel and Return', [@layer, @point], :class => 'cancel-link' %></span>
-</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', [@layer, @point] %>

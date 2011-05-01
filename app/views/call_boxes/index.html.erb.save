@@ -1,5 +1,4 @@
-<% content_for :title, "Call Boxes" %>
-
+<% content_for :title, @import_table.original_path %>
 <h1>Listing call_boxes</h1>
 
 <table>
@@ -21,9 +20,9 @@
     <td><%= call_box.latitude %></td>
     <td><%= call_box.longitude %></td>
     <td><%= call_box.notes %></td>
-    <td><%= link_to 'Show', layer_call_box_path(call_box.layer_id, call_box) unless call_box.layer_id.nil? %></td>
-    <td><%= link_to 'Edit', edit_layer_call_box_path(call_box.layer_id, call_box) unless call_box.layer_id.nil? %></td>
-    <td><%= link_to 'Destroy', layer_call_box_path(call_box.layer_id, call_box), :confirm => 'Are you sure?', :method => :delete unless call_box.layer_id.nil? %></td>
+    <td><%= link_to 'Show', layer_call_box_path(@layer, call_box) %></td>
+    <td><%= link_to 'Edit', edit_layer_call_box_path(call_box.layer_id, call_box) %></td>
+    <td><%= link_to 'Destroy', layer_call_box_path(@layer, call_box), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

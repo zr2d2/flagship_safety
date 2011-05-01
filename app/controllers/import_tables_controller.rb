@@ -131,6 +131,6 @@ class ImportTablesController < ApplicationController
       end
       instance.save
     end
-    redirect_to layer_path
+    redirect_to layers_path
   end
 end

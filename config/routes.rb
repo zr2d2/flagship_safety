@@ -1,12 +1,13 @@
 Geo::Application.routes.draw do
-  resources :cb_tests
-
-  resources :call_boxes
 
   resources :layers do
     resources :points
     resources :paths
     resources :polygons
+    resources :crime_alerts
+    resources :call_boxes do
+      resources :cb_tests
+    end
   end
 
   resources :import_tables

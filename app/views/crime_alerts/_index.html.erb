@@ -1,0 +1,30 @@
+<% if !crime_alerts.empty? %>
+  <table cellpadding="0" cellspacing="0" width="100%" class="elements">
+    <thead>
+      <tr class="cat_title">
+        <th>Cb num</th>
+        <th>Cb type</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Notes</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% crime_alerts.each do |crime_alert| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><%= crime_alert.name %></td>
+          <td><%= crime_alert.latitude %></td>
+          <td><%= crime_alert.longitude %></td>
+          <td><%= link_to 'Show', call_box %></td>
+          <td><%= link_to 'Edit', edit_call_box_path(call_box) %></td>
+          <td><%= link_to 'Destroy', call_box, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+  <%= link_to 'New Call box', new_call_box_path %>
+<% end %>
