@@ -7,7 +7,7 @@ module LayersHelper
   def midpoint(call_boxes = [], crime_alerts = [])
     return Coord.new(:latitude => 0, :longitude => 0) if call_boxes.nil? && crime_alerts.nil?
 
-    x = y = z = 0
+    x = y = z = size = 0
     if !call_boxes.nil?
       call_boxes.each do |call_box|
         unless call_box.latitude.nil? || call_box.longitude.nil?
@@ -16,27 +16,29 @@ module LayersHelper
           z += call_box.z
         end
       end
-    end
-    if !crime_alerts.nil?
-      crime_alerts.each do |crime_alert|
-        x += crime_alert.x
-        y += crime_alert.y
-        z += crime_alert.z
-      end
-    end
-    size = 0
-    if !call_boxes.nil?
       size += call_boxes.length
     end
     if !crime_alerts.nil?
+      crime_alerts.each do |crime_alert|
+        unless crime_alert.latitude.nil? || crime_alert.longitude.nil?
+          x += crime_alert.x
+          y += crime_alert.y
+          z += crime_alert.z
+        end
+      end
       size += crime_alerts.length
     end
+    if size.zero?
+      return Coord.new(:latitude => 42.730983, :longitude => -73.6669)
+    end
+
     x, y, z = x/size, y/size, z/size
-    longitude = Math.atan2(y, x).radians
+
     hypotenuse = Math.sqrt(x * x + y * y)
+    longitude = Math.atan2(y, x).radians
     latitude = Math.atan2(z, hypotenuse).radians
 
-   Coord.new(:latitude => latitude, :longitude => longitude)
+    Coord.new(:latitude => latitude, :longitude => longitude)
   end
 
   # Generates a KML color given a hex color string.
