@@ -6,7 +6,7 @@ Geo::Application.routes.draw do
     resources :polygons
     resources :crime_alerts
     resources :call_boxes do
-      resources :cb_tests
+      resources :cb_tests, :as => "test"
     end
   end
 
@@ -65,7 +65,8 @@ Geo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "layers#index"
+
+  root :to => "displays#index"
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+  <title>View Emergencyh Poles</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
+  <%= csrf_meta_tag %>
+  <%= favicon_link_tag %>
+  <meta name="description" content="See emergency features at RPI" />
+  <% if content_for?(:js_ready) %>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        <%= yield(:js_ready) %>
+      });
+    </script>
+  <% end %>
+  <% if content_for?(:js) %>
+    <script type="text/javascript">
+      <%= yield(:js) %>
+    </script>
+  <% end %>
+</head>
+<body>
+  <% if flash[:notice] %><p style="color: green"><%= flash[:notice] %></p><% end %>
+  <%= yield %>
+</body>
+</html>

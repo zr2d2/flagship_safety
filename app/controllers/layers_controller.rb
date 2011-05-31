@@ -7,6 +7,22 @@ class LayersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @layers }
+      format.js { render :json => @layers.to_json(
+            :include => {
+              :call_boxes => {},
+              :crime_alerts => { :only => [:latitude, :longitude]},
+              :paths => {
+                :include => { :coords => {
+                  :only => [:position, :latitude, :longitude]
+                }}
+              },
+              :polygons => {
+                :include => { :coords => {
+                  :only => [:position, :latitude, :longitude]
+                }}
+              }
+            }
+      )}
     end
   end
 
@@ -21,7 +37,7 @@ class LayersController < ApplicationController
       format.kml  # show.kml.builder
       format.js { render :json => @layer.to_json(
         :include => {
-          :call_boxes => { :only => [:latitude, :longitude]},
+          :call_boxes => {},
           :crime_alerts => { :only => [:latitude, :longitude]},
           :paths => {
             :include => { :coords => {

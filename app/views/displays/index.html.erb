@@ -1,0 +1,73 @@
+<% content_for :js do %>
+  //Global Variables
+  var map; //The map!
+  var points_on_map; //Total number of objects on the map
+<% end %>
+
+<% content_for :js_ready do %>
+  <% Coord.include_root_in_json = false %>
+  var midpoint = <%=raw midpoint3(@layers).to_json() %>;
+
+  map = setup_map(midpoint, 0);
+  points_on_map = 0;
+
+  $.getJSON('<%= layers_path(:format => :js) %>', function(fdata) {
+    var map_bounds = new google.maps.LatLngBounds();
+    $.each(fdata, function(index, data){
+      $.each(data.layer.call_boxes, function(index, cb){
+        marker = add_point_to_map(cb, map);
+        map_bounds.extend(marker.position);
+        points_on_map++;
+      });
+      $.each(data.layer.crime_alerts, function(index, point){
+        marker = add_point_to_map(point, map);
+        map_bounds.extend(marker.position);
+        points_on_map++;
+      });
+      $.each(data.layer.paths, function(index, path){
+        var polyline = new google.maps.Polyline();
+        polyline.setMap(map);
+        $.each(path.coords, function(index, coord){
+          pos = add_point_to_polyline(coord, polyline);
+          map_bounds.extend(pos);
+          points_on_map++;
+        });
+      });
+      $.each(data.layer.polygons, function(index, polygon_data){
+        var polygon = new google.maps.Polygon();
+        polygon.setMap(map);
+        $.each(polygon_data.coords, function(index, coord){
+          add_point_to_polygon(coord, polygon);
+          map_bounds.extend(pos);
+          points_on_map++;
+        });
+      });
+    });
+    if(points_on_map > 0){
+      map.fitBounds(map_bounds);
+    }
+  });
+<% end %>
+
+<% content_for :title, "Flagship Safety" %>
+
+<h2 class="breadcrumb">
+	<%= link_to "Home", root_path %>&nbsp;/&nbsp;
+</h2>
+
+<div class="main-title">
+	<%= map_canvas({:style => " height: 500px;"})%>
+</div>
+
+<div class="hr_dl flush"><%= image_tag("bl.png", :alt => "") %></div>
+
+<br />
+
+<div class="mc-indent">
+
+  <h2 id="Layers">Layers <%= link_to 'Add', new_layer_path(@layer), :class => "link-button" %></h2>
+        <div>
+          <%= render :partial => 'layers/index', :locals => {:layers => @layers} %>
+        </div>
+        <br />
+</div>
