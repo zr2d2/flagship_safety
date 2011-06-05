@@ -39,14 +39,15 @@ function setup_map(center_point, zoom_level, div){
 // Optional: options can be used to override
 // and of the properties of the marker.
 function add_point_to_map(point, map, options){
+  console.log(point);
   var infowindow = new google.maps.InfoWindow({
-    content: point.description
+    content: point.notes
   });
   
   var opts = {
     position: new google.maps.LatLng(point.latitude, point.longitude), 
     map: map,
-    title: point.name
+    title: point.cb_num.toString()
   };
   
   jQuery.extend(opts, options);

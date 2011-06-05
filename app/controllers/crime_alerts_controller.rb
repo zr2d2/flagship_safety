@@ -10,39 +10,39 @@ class CrimeAlertsController < ApplicationController
   # GET /call_boxes
   # GET /call_boxes.xml
   def index
-    @call_boxes = CallBox.all
+    @crime_alerts = CallBox.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @call_boxes }
+      format.xml  { render :xml => @crime_alerts }
     end
   end
 
   # GET /call_boxes/1
   # GET /call_boxes/1.xml
   def show
-    @call_box = CallBox.find(params[:id])
+    @crime_alert = CallBox.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @call_box }
+      format.xml  { render :xml => @crime_alerts }
     end
   end
 
-  # GET /call_boxes/new
-  # GET /call_boxes/new.xml
+  # GET /crime_alerts/new
+  # GET /crime_alerts/new.xml
   def new
-    @call_box = CallBox.new
+    @crime_alert = CrimeAlert.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @call_box }
+      format.xml  { render :xml => @crime_alert }
     end
   end
 
   # GET /call_boxes/1/edit
   def edit
-    @call_box = CallBox.find(params[:id])
+    @crime_alert = CrimeAlert.find(params[:id])
   end
 
   # POST /call_boxes
