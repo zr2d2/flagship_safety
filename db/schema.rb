@@ -10,18 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327203337) do
+ActiveRecord::Schema.define(:version => 20110503151723) do
 
-  create_table "call_boxes", :force => true do |t|
-    t.integer  "cb_num"
-    t.string   "cb_type"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
-    t.text     "notes"
-    t.integer  "layer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "call_boxes" because of following StandardError
+#   Unknown type 'bool' for column 'aproximate'
 
   create_table "cb_tests", :force => true do |t|
     t.integer  "cb_number"
