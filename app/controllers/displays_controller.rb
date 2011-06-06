@@ -3,7 +3,7 @@ class DisplaysController < ApplicationController
   def index
     @layers = Layer.all
     respond_to do |format|
-      format.html { render :layout => 'full_map' } # index.html.erb
+      format.html { render } # index.html.erb
       format.xml  { render :xml => @layers }
       format.kml  # show.kml.builder
       format.js { render :json => @layers.to_json(
