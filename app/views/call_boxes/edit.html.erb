@@ -1,6 +1,15 @@
-<h1>Editing call_box</h1>
+<% content_for :title, @call_box.cb_num.to_s %>
 
-<%= render 'form' %>
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+        <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+</h2>
 
-<%= link_to 'Show', [@layer, @call_box] %> |
-<%= link_to 'Back', layer_call_boxes_path %>
+<div class="main-title">
+        <h1>Editing Call Box <%= @call_box.cb_num.to_s %></h1>
+</div>
+<span>
+        <%= render 'form' %>
+</span>
+
+<%= link_to 'Show', [@layer, @call_box] %>

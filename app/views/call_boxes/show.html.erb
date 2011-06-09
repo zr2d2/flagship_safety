@@ -2,11 +2,13 @@
     <% CallBox.include_root_in_json = false %>
     var call_box = <%=raw @call_box.to_json() %>;
     
-    var map = setup_map(call_box, 13);
+    var map = setup_map(call_box, 17);
     add_point_to_map(call_box, map);
 <% end %>
 
-<% content_for :title, @call_box.cb_num.to_s %>
+<% content_for :title do %>
+  Call Box <%= @call_box.cb_num.to_s %>
+<% end %>
 
 <h2 class="breadcrumb">
         <%= link_to "Home", root_path %>&nbsp;/&nbsp;
@@ -31,6 +33,9 @@
                 <br />
 		<b>Longitude:</b>
 		<%= @call_box.longitude %>
+                <br />
+                <b>Aproximate?</td>
+                <%= @call_box.aproximate %>
                 <br />
 		<b>Notes:</b>
 		<%= @call_box.notes %>
