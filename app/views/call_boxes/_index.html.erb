@@ -10,25 +10,21 @@
         <th>Notes</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
       <% call_boxes.each do |call_box| %>
         <tr class="<%= cycle('odd', 'even') %>">
-          <td><%= call_box.cb_num %></td>
+          <td><%= link_to layer_call_box_path(@layer, call_box) do %><h2><%= call_box.cb_num %></h2><% end %></td>
           <td><%= call_box.cb_type %></td>
           <td><%= call_box.latitude %></td>
           <td><%= call_box.longitude %></td>
           <td><%= call_box.aproximate %></td>
           <td><%= call_box.notes %></td>
-          <td><%= link_to 'Show', layer_call_box_path(@layer, call_box) %></td>
-          <td><%= link_to 'Edit', edit_layer_call_box_path(@layer, call_box) %></td>
-          <td><%= link_to 'Destroy', layer_call_box_path(@layer, call_box), :confirm => 'Are you sure?', :method => :delete, :class => 'cancel-link' %></td>
+          <td><%= link_to 'Edit', edit_layer_call_box_path(@layer, call_box), :class => 'edit-link' %></td>
+          <td><%= link_to 'Remove', layer_call_box_path(@layer, call_box), :confirm => 'Are you sure?', :method => :delete, :class => 'cancel-link' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <br />
-  <%= link_to 'New Call box', new_layer_call_box_path(@layer) %>
 <% end %>

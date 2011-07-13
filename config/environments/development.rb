@@ -15,9 +15,12 @@ Geo::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
+
+  # Since we send email, we need to know where people should click from that email
+  config.action_mailer.default_url_options = { :host => 'senatedev.union.rpi.edu' }
 
   # Print deprecation notices to the Rails logger
- 	config.active_support.deprecation = :log
+  config.active_support.deprecation = :log
 
 end

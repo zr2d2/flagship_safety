@@ -1,4 +1,4 @@
-<%= form_for(@cb_test) do |f| %>
+<%= form_for([@layer, @call_box, @cb_test]) do |f| %>
   <% if @cb_test.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cb_test.errors.count, "error") %> prohibited this cb_test from being saved:</h2>

@@ -1,3 +1,50 @@
+<% content_for :js_ready do %>
+    <% CallBox.include_root_in_json = false %>
+    var call_box = <%=raw @call_box.to_json() %>;
+
+    var map = setup_map(call_box, 17);
+    add_point_to_map(call_box, map);
+<% end %>
+
+<% content_for :title do %>
+  Call Box <%= @call_box.cb_num.to_s Tests %>
+<% end %>
+
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+        <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+</h2>
+
+<div class="main-title">
+
+        <%= @call_box.cb_num.to_s %>
+
+        <%= map_canvas({:style => " height: 500px;"})%>
+
+        <span>
+                <b>Cb num:</b>
+                <%= @call_box.cb_num %>
+                <br />
+                <b>Cb type:</b>
+                <%= @call_box.cb_type %>
+                <br />
+                <b>Latitude:</b>
+                <%= @call_box.latitude %>
+                <br />
+                <b>Longitude:</b>
+                <%= @call_box.longitude %>
+                <br />
+                <b>Aproximate?</td>
+                <%= @call_box.aproximate %>
+                <br />
+                <b>Notes:</b>
+                <%= @call_box.notes %>
+                <br />
+                <%= link_to 'Edit', edit_layer_call_box_path(@layer, @call_box) %> |
+                <%= link_to 'Back', layer_path(@layer) %>
+        </span>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <p>

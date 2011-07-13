@@ -19,8 +19,8 @@
           <td><%= crime_alert.latitude %></td>
           <td><%= crime_alert.longitude %></td>
           <td><%= link_to 'Show', call_box %></td>
-          <td><%= link_to 'Edit', edit_call_box_path(call_box) %></td>
-          <td><%= link_to 'Destroy', call_box, :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to 'Edit', edit_call_box_path(call_box), :class => 'edit-link' %></td>
+          <td><%= link_to 'Remove', call_box, :confirm => 'Are you sure?', :method => :delete, :class => 'remove-link' %></td>
         </tr>
       <% end %>
     </tbody>
