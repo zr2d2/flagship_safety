@@ -10,6 +10,18 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # Use rdoc
 gem 'rdoc'
 
+# attachments
+gem "paperclip", "~> 2.3"
+
+# Authentication
+gem 'devise'
+gem 'devise_cas_authenticatable', :git => "git://github.com/bamnet/devise_cas_authenticatable.git"
+
+# Authentication
+gem "cancan"
+
+gem 'formtastic', '~> 1.2.3'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

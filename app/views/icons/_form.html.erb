@@ -1,0 +1,10 @@
+<%= semantic_form_for(@icon, :html => {:multipart => true}) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name, :label => "Icon Name" %>
+    <%= f.input :image, :label => "Image File" %>
+    <%= f.input :is_public, :label => "Public Icon", :hint => "Allow non-collaborators to use this icon" %>
+  <% end %>
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>

@@ -1,5 +1,8 @@
 Geo::Application.routes.draw do
 
+  devise_for :users
+
+  resources :icons, :except => :show
   resources :layers do
     resources :points
     resources :paths

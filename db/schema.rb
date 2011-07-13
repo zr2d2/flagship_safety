@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605014623) do
+ActiveRecord::Schema.define(:version => 20110706183943) do
 
   create_table "call_boxes", :force => true do |t|
     t.integer  "cb_num"
@@ -70,6 +70,18 @@ ActiveRecord::Schema.define(:version => 20110605014623) do
     t.decimal  "layer_id"
   end
 
+  create_table "icons", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.string   "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_public",          :default => true
+  end
+
   create_table "import_cells", :force => true do |t|
     t.integer  "import_table_id"
     t.integer  "row_index"
@@ -90,9 +102,10 @@ ActiveRecord::Schema.define(:version => 20110605014623) do
   create_table "layers", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "icon_id"
+    t.boolean  "is_public"
   end
 
   create_table "paths", :force => true do |t|
@@ -107,6 +120,20 @@ ActiveRecord::Schema.define(:version => 20110605014623) do
     t.string   "name"
     t.text     "description"
     t.integer  "layer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "fullname"
+    t.string   "role"
+    t.string   "username"
+    t.integer  "sign_in_count",      :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

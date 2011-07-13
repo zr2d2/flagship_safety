@@ -1,0 +1,30 @@
+<h2 class="breadcrumb">
+  <%= link_to "Home", root_url %>
+</h2>
+<div class="main-title">Icons</div>
+<div class="mc-indent">
+<% if !@icons.empty? %>
+  <table class="elements">
+    <thead>
+      <tr>
+       <th>Name</th>
+       <th>Owner</th>
+       <th></th>
+       <th></th>
+     </tr>
+  </thead>
+  <tbody>
+<% @icons.each do |icon| %>
+  <tr>
+    <td><%= icon.name %></td>
+    <td><%= icon.user.name unless icon.user.nil? %></td>
+    <td><%= image_tag icon.image.url(:small) %></td>
+    <td><%= link_to 'Edit', edit_icon_path(icon) if can? :update, icon %> &nbsp;
+    <%= link_to 'Destroy', icon, :confirm => 'Are you sure?', :method => :delete if can? :delete, icon %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+<% end %>
+<%= link_to 'New Icon', new_icon_path, :class=> 'link-button create' if can? :create, Icon %>
+</div>
