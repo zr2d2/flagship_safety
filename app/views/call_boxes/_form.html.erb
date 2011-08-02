@@ -1,45 +1,14 @@
-<%= form_for([@layer, @call_box] ) do |f| %>
-  <% if @call_box.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@call_box.errors.count, "error") %> prohibited this call_box from being saved:</h2>
-
-      <ul>
-      <% @call_box.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for([@layer, @call_box], :html => { :class => 'cmxform'} ) do |f| %>
+  <% f.inputs do %>
+    <%= f.input :cb_num %>
+    <%= f.input :cb_type %><br />
+    <%= f.input :latitude %><br />
+    <%= f.input :longitude %><br />
+    <%= f.input :aproximate %>
+    <%= f.input :layer_id %>
+    <%= f.input :notes %><br />
   <% end %>
-
-  <div class="field">
-    <%= f.label :cb_num %><br />
-    <%= f.text_field :cb_num %>
-  </div>
-  <div class="field">
-    <%= f.label :cb_type %><br />
-    <%= f.text_field :cb_type %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :aproximate %><br />
-    <%= f.check_box :aproximate %>
-  </div>
-  <div class="field">
-    <%= f.label :layer_id %><br />
-    <%= f.text_field :layer_id %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </div>
-  <div class="actions">
+  <% f.buttons do %>
     <%= f.submit %>
-  </div>
+  <% end %>
 <% end %>

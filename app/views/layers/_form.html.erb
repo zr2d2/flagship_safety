@@ -1,22 +1,11 @@
-<%= form_for(@layer, :html => { :class => 'cmxform'} ) do |f| %>
-  <% if @layer.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@layer.errors.count, "error") %> prohibited this layer from being saved:</h2>
-    <ul>
-    <% @layer.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<% semantic_form_for(@layer, :html => { :class => 'cmxform'} ) do |f| %>
+  <% f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :icon_id %>
+    <%= f.input :is_public, :label => "public?" %>
   <% end %>
-  <fieldset>
-    <ol>
-      <li><%= f.label :name %> <%= f.text_field :name %></li>
-      <li><%= f.label :description %>  <%= f.text_area :description %></li>
-      <li><%= f.label :icon %> <%= f.text_field :icon_id %></li>
-    </ol>
-  </fieldset>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
 <% end %>

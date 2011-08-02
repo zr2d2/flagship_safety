@@ -1,37 +1,18 @@
-<%= form_for([@layer, @crime_alert] ) do |f| %>
-  <% if @crime_alert.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@crime_alert.errors.count, "error") %> prohibited this crime_alert from being saved:</h2>
-
-      <ul>
-      <% @crime_alert.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for([@layer, @crime_alert], :html => { :class => 'cmxform'} ) do |f| %>
+  <% f.inputs do %>
+    <%= f.input :body %><br />
+    <%= f.input :happened %><br />
+    <%= f.input :location %><br />
+    <%= f.input :raw_data %><br />
+    <%= f.input :raw_id %><br />
+    <%= f.input :legitimate %><br />
+    <%= f.input :type_id %><br />
+    <%= f.input :processed %><br />
+    <%= f.input :latitude, :limit => 10 %><br />
+    <%= f.input :longitude, :limit => 10 %><br />
+    <%= f.input :layer_id %><br />
   <% end %>
-
-  <div class="field">
-    <%= f.label :cb_num %><br />
-    <%= f.text_field :cb_num %>
-  </div>
-  <div class="field">
-    <%= f.label :cb_type %><br />
-    <%= f.text_field :cb_type %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </div>
-  <div class="actions">
+  <% f.buttons do %>
     <%= f.submit %>
-  </div>
+  <% end %>
 <% end %>

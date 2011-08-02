@@ -25,13 +25,13 @@
     <td><%= cb_test.DTMF %></td>
     <td><%= cb_test.blue_light %></td>
     <td><%= cb_test.response_test %></td>
-    <td><%= link_to 'Show', cb_test %></td>
-    <td><%= link_to 'Edit', edit_cb_test_path(cb_test) %></td>
-    <td><%= link_to 'Destroy', cb_test, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', layer_call_box_cb_test_path(@layer.id, cb_test.cb_number, cb_test) %></td>
+    <td><%= link_to 'Edit', edit_layer_call_box_cb_test_path(@layer.id, cb_test.cb_number, cb_test) %></td>
+    <td><%= link_to 'Destroy', layer_call_box_cb_test_path(@layer.id, cb_test.cb_number, cb_test), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Cb test', new_layer_call_box_test_path %>
+<%= link_to 'New Cb test', new_layer_call_box_cb_test_path %>

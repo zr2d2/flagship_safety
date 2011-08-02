@@ -1,5 +1,12 @@
-<h1>New crime_alert</h1>
+<% content_for :title, "New Crime Alert" %>
+
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+        <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+</h2>
+
+<div class="main-title">
+        <h1>New Crime Alert</h1>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', layer_crime_alerts_path %>

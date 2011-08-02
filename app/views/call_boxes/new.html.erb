@@ -1,5 +1,12 @@
-<h1>New call_box</h1>
+<% content_for :title, "New Call Box" %>
+
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+        <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+</h2>
+
+<div class="main-title">
+        <h1>New Call Box</h1>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', layer_call_boxes_path %>
