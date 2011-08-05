@@ -7,10 +7,10 @@ class CrimeAlertsController < ApplicationController
     @layer = Layer.find(params[:layer_id])
   end
 
-  # GET /call_boxes
-  # GET /call_boxes.xml
+  # GET /crime_alerts
+  # GET /crime_alerts.xml
   def index
-    @crime_alerts = CallBox.all
+    @crime_alerts = CrimeAlert.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,10 +18,10 @@ class CrimeAlertsController < ApplicationController
     end
   end
 
-  # GET /call_boxes/1
-  # GET /call_boxes/1.xml
+  # GET /crime_alerts/1
+  # GET /crime_alerts/1.xml
   def show
-    @crime_alert = CallBox.find(params[:id])
+    @crime_alert = CrimeAlert.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,48 +40,48 @@ class CrimeAlertsController < ApplicationController
     end
   end
 
-  # GET /call_boxes/1/edit
+  # GET /crime_alerts/1/edit
   def edit
     @crime_alert = CrimeAlert.find(params[:id])
   end
 
-  # POST /call_boxes
-  # POST /call_boxes.xml
+  # POST /crime_alerts/
+  # POST /crime_alerts.xml
   def create
-    @call_box = CallBox.new(params[:call_box])
+    @crime_alert = CrimeAlert.new(params[:crime_alert])
 
     respond_to do |format|
-      if @call_box.save
-        format.html { redirect_to([@layer, @call_box], :notice => 'Call box was successfully created.') }
-        format.xml  { render :xml => @call_box, :status => :created, :location => @call_box }
+      if @crime_alert.save
+        format.html { redirect_to([@layer, @crime_alert], :notice => 'Crime Alert was successfully created.') }
+        format.xml  { render :xml => @crime_alert, :status => :created, :location => @crime_alert }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @call_box.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @crime_alert.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /call_boxes/1
-  # PUT /call_boxes/1.xml
+  # PUT /crime_alerts/1
+  # PUT /crime_alerts/1.xml
   def update
-    @call_box = CallBox.find(params[:id])
+    @crime_alert = CrimeAlert.find(params[:id])
 
     respond_to do |format|
-      if @call_box.update_attributes(params[:call_box])
-        format.html { redirect_to(@call_box, :notice => 'Call box was successfully updated.') }
+      if @crime_alert.update_attributes(params[:crime_alert])
+        format.html { redirect_to(@crime_alert, :notice => 'Crime Alert was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @call_box.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @crime_alert.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /call_boxes/1
-  # DELETE /call_boxes/1.xml
+  # DELETE /crime_alerts/1
+  # DELETE /crime_alerts/1.xml
   def destroy
-    @call_box = CallBox.find(params[:id])
-    @call_box.destroy
+    @crime_alert = CrimeAlert.find(params[:id])
+    @crime_alert.destroy
 
     respond_to do |format|
       format.html { redirect_to(layer_url) }

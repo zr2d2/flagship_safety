@@ -2,12 +2,17 @@
   <table cellpadding="0" cellspacing="0" width="100%" class="elements">
     <thead>
       <tr class="cat_title">
-        <th>Cb num</th>
-        <th>Cb type</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-        <th>Notes</th>
-        <th></th>
+        <th>happened</th>
+        <th>body</th>
+        <th>location</th>
+        <th>raw_data</th>
+        <th>raw_id</th>
+        <th>legitimate</th>
+        <th>type_id</th>
+        <th>processed</th>
+        <th>latitude</th>
+        <th>longitude</th>
+        <th>layer_id</th>
         <th></th>
         <th></th>
       </tr>
@@ -15,16 +20,21 @@
     <tbody>
       <% crime_alerts.each do |crime_alert| %>
         <tr class="<%= cycle('odd', 'even') %>">
-          <td><%= crime_alert.name %></td>
+          <td><%= link_to layer_crime_alert_path(@layer, crime_alert) do %><h2><%= crime_alert.happened %></h2><% end %></td>
+          <td><%= crime_alert.body %></td>
+          <td><%= crime_alert.location %></td>
+          <td><%= crime_alert.raw_data %></td>
+          <td><%= crime_alert.raw_id %></td>
+          <td><%= crime_alert.legitimate %></td>
+          <td><%= crime_alert.type_id %></td>
+          <td><%= crime_alert.processed %></td>
           <td><%= crime_alert.latitude %></td>
           <td><%= crime_alert.longitude %></td>
-          <td><%= link_to 'Show', call_box %></td>
-          <td><%= link_to 'Edit', edit_call_box_path(call_box), :class => 'edit-link' %></td>
-          <td><%= link_to 'Remove', call_box, :confirm => 'Are you sure?', :method => :delete, :class => 'remove-link' %></td>
+          <td><%= crime_alert.layer_id %></td>
+          <td><%= link_to 'Edit', edit_layer_crime_alert_path(@layer, crime_alert), :class => 'edit-link' %></td>
+          <td><%= link_to 'Remove', layer_crime_alert_path(@layer, crime_alert), :confirm => 'Are you sure you want to remove this crime alert?', :method => :delete, :class => 'cancel-link' %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <br />
-  <%= link_to 'New Call box', new_call_box_path %>
 <% end %>

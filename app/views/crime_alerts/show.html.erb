@@ -1,30 +1,60 @@
-<p id="notice"><%= notice %></p>
+<% content_for :js_ready do %>
+    <% CrimeAlert.include_root_in_json = false %>
+    var crime_alert = <%=raw @crime_alert.to_json() %>;
 
-<p>
-  <b>Cb num:</b>
-  <%= @call_box.cb_num %>
-</p>
+    var map = setup_map(crime_alert, 17);
+    add_point_to_map(crime_alert, map);
+<% end %>
 
-<p>
-  <b>Cb type:</b>
-  <%= @call_box.cb_type %>
-</p>
+<% content_for :title do %>
+  Crime Alert <%= @crime_alert.happened.to_s %>
+<% end %>
 
-<p>
-  <b>Latitude:</b>
-  <%= @call_box.latitude %>
-</p>
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+        <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+</h2>
 
-<p>
-  <b>Longitude:</b>
-  <%= @call_box.longitude %>
-</p>
+<div class="main-title">
+        <%= @crime_alert.happened.to_s %>
+        <%= map_canvas(:style => "width: 50%; height:200px; float:right;") %>
+</div>
 
-<p>
-  <b>Notes:</b>
-  <%= @call_box.notes %>
-</p>
-
-
-<%= link_to 'Edit', edit_call_box_path(@call_box) %> |
-<%= link_to 'Back', call_boxes_path %>
+<div id="info_box">
+        <b>happened</b>
+         <%= @crime_alert.happened %>
+        <br/>
+        <b>body</b>
+        <%= @crime_alert.body %>
+        <br/>
+        <b>location</b>
+        <%= @crime_alert.location %>
+        <br/>
+        <b>raw_data</b>
+        <%= @crime_alert.raw_data %>
+        <br/>
+        <b>raw_id</b>
+        <%= @crime_alert.raw_id %>
+        <br/>
+        <b>legitimate</b>
+        <%= @crime_alert.legitimate %>
+        <br/>
+        <b>type_id</b>
+        <%= @crime_alert.type_id %>
+        <br/>
+        <b>processed</b>
+        <%= @crime_alert.processed %>
+        <br/>
+        <b>latitude</b>
+        <%= @crime_alert.latitude %>
+        <br/>
+        <b>longitude</b>
+        <%= @crime_alert.longitude %>
+        <br/>
+        <b>layer_id</b>
+        <%= @crime_alert.layer_id %>
+        <br/>
+</div>
+<div style="clear: both;"></div>
+<td><%= link_to 'Edit', edit_layer_crime_alert_path(@layer, @crime_alert) %></td>
+<td><%= link_to 'Remove', layer_crime_alert_path(@layer, @crime_alert), :confirm => 'Are you sure?', :method => :delete, :class => 'cancel-link' %></td>
