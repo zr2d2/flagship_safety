@@ -4,6 +4,7 @@
 
     var map = setup_map(crime_alert, 17);
     add_point_to_map(crime_alert, map);
+    alert('added point to map');
 <% end %>
 
 <% content_for :title do %>
@@ -55,6 +56,7 @@
         <%= @crime_alert.layer_id %>
         <br/>
 </div>
-<div style="clear: both;"></div>
-<td><%= link_to 'Edit', edit_layer_crime_alert_path(@layer, @crime_alert) %></td>
-<td><%= link_to 'Remove', layer_crime_alert_path(@layer, @crime_alert), :confirm => 'Are you sure?', :method => :delete, :class => 'cancel-link' %></td>
+<div style="clear: both; margin: 10px;"></div>
+<%= link_to 'Edit', edit_layer_crime_alert_path(@layer, @crime_alert), :class => 'link-button' %>
+<%= link_to 'Remove', layer_crime_alert_path(@layer, @crime_alert), :confirm => 'Are you sure?', :method => :delete, :class => 'link-button' %>
+

@@ -4,7 +4,6 @@
          <tr class="cat_title">
                 <th style="text-align:right;">Name</th>
                 <th>Description</th>
-                <th style="text-align:left;">Icon</th>
                 <th>Public?</th>
                 <th>Created</th>
                 <th>Updated</th>
@@ -16,7 +15,6 @@
  <tr class="<%= cycle('odd', 'even') %>">
   <td><%= link_to layer do %><h2><%= layer.name %></h2><% end %></td>
   <td><p><%=raw layer.description %></p></td>
-  <td class="center_img"><%= image_tag layer.icon_id.image.url(:small) unless layer.icon_id.nil? %></td>
   <td><%= layer.is_public unless layer.is_public.nil? %></td>
   <td><%= layer.created_at.strftime('%D') unless layer.created_at.nil? %></td>
   <td><%= layer.updated_at.strftime('%D') unless layer.updated_at.nil? %></td>

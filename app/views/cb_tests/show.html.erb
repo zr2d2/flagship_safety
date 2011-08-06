@@ -13,80 +13,40 @@
 <h2 class="breadcrumb">
         <%= link_to "Home", root_path %>&nbsp;/&nbsp;
         <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+        <%= link_to @call_box.cb_num.to_s, layer_call_box_path(@layer, @call_box) %>
 </h2>
 
 <div class="main-title">
 
-        <%= @call_box.cb_num.to_s %>
+        Call Box <%= @call_box.cb_num.to_s %> Tests
 
-        <%= map_canvas({:style => " height: 500px;"})%>
+        <%= map_canvas(:style => "width: 50%; height:200px; float:right;") %>
 
-        <span>
-                <b>Cb num:</b>
-                <%= @call_box.cb_num %>
-                <br />
-                <b>Cb type:</b>
-                <%= @call_box.cb_type %>
-                <br />
-                <b>Latitude:</b>
-                <%= @call_box.latitude %>
-                <br />
-                <b>Longitude:</b>
-                <%= @call_box.longitude %>
-                <br />
-                <b>Aproximate?</td>
-                <%= @call_box.aproximate %>
-                <br />
-                <b>Notes:</b>
-                <%= @call_box.notes %>
-                <br />
-                <%= link_to 'Edit', edit_layer_call_box_cb_test_path(@layer, @call_box) %> |
-                <%= link_to 'Back', layer_call_box_path(@layer, @call_box) %>
-        </span>
 </div>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Cb number:</b>
-  <%= @cb_test.cb_number %>
-</p>
-
-<p>
-  <b>Tested on:</b>
-  <%= @cb_test.tested_on %>
-</p>
-
-<p>
-  <b>Keypad:</b>
-  <%= @cb_test.keypad %>
-</p>
-
-<p>
-  <b>Key light:</b>
-  <%= @cb_test.key_light %>
-</p>
-
-<p>
-  <b>Call fn:</b>
-  <%= @cb_test.call_fn %>
-</p>
-
-<p>
-  <b>Dtmf:</b>
-  <%= @cb_test.DTMF %>
-</p>
-
-<p>
-  <b>Blue light:</b>
-  <%= @cb_test.blue_light %>
-</p>
-
-<p>
-  <b>Response test:</b>
-  <%= @cb_test.response_test %>
-</p>
-
-
-<%= link_to 'Edit', edit_layer_call_box_cb_test_path(@layer, @call_box) %> |
-<%= link_to 'Back', layer_call_box_path(@layer, @call_box) %>
+<div id="info_box">
+	<b>Tested on:</b>
+	<%= @cb_test.tested_on %>
+	<br/>
+	<b>Keypad:</b>
+	<%= @cb_test.keypad %>
+	<br/>
+	<b>Key light:</b>
+	<%= @cb_test.key_light %>
+	<br/>
+	<b>Call function:</b>
+	<%= @cb_test.call_fn %>
+	<br/>
+	<b>DTMF:</b>
+	<%= @cb_test.DTMF %>
+	<br/>
+	<b>Blue light:</b>
+	<%= @cb_test.blue_light %>
+	<br/>
+	<b>Response test:</b>
+	<%= @cb_test.response_test %>
+	<br/>
+</div>
+<div style="clear: both; padding:5px;"></div>
+<%= link_to 'Edit', edit_cb_test_path, :class => 'link-button' %>
+<%= link_to 'Remove', cb_test_path, :confirm => 'Are you sure you want to remove this call box?', :method => :delete, :class => 'link-button' %>

@@ -1,9 +1,15 @@
-<h1>Editing crime_alert</h1>
+<% content_for :title, @crime_alert.happened.to_s %>
 
-<%= render 'form' %>
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+        <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+</h2>
 
-          <td><%= link_to 'Show', crime_alert %></td>
-          <td><%= link_to 'Edit', edit_layer_crime_alert_path(crime_alert) %></td>
-          <td><%= link_to 'Destroy', crime_alert, :confirm => 'Are you sure?', :method => :delete %></td>
-<%= link_to 'Show', crime_alert %> |
-<%= link_to 'Back', layers_crime_alerts_path %>
+<div class="main-title">
+        <h1>Editing Crime Alert <%= @crime_alert.happened.to_s %></h1>
+</div>
+<span>
+        <%= render 'form' %>
+</span>
+
+<%= link_to 'Show', [@layer, @crime_alert] %>

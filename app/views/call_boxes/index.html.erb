@@ -1,35 +1,38 @@
 <% content_for :title, "Call Boxes" %>
 
-<h1>Listing call_boxes</h1>
+<div class="main-title">Call Boxes</div>
 
-<table>
-  <tr>
-    <th>Cb num</th>
-    <th>Cb type</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Aproximate?</th>
-    <th>Notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @call_boxes.each do |call_box| %>
-  <tr>
-    <td><%= call_box.cb_num %></td>
-    <td><%= call_box.cb_type %></td>
-    <td><%= call_box.latitude %></td>
-    <td><%= call_box.longitude %></td>
-    <td><%= call_box.aproximate %></td>
-    <td><%= call_box.notes %></td>
-    <td><%= link_to 'Show', layer_call_box_path(call_box.layer_id, call_box) unless call_box.layer_id.nil? %></td>
-    <td><%= link_to 'Edit', edit_layer_call_box_path(call_box.layer_id, call_box) unless call_box.layer_id.nil? %></td>
-    <td><%= link_to 'Destroy', layer_call_box_path(call_box.layer_id, call_box), :confirm => 'Are you sure?', :method => :delete unless call_box.layer_id.nil? %></td>
-  </tr>
+<% if !@call_boxes.empty? %>
+  <table cellpadding="0" cellspacing="0" width="100%" class="elements">
+    <thead>
+      <tr class="cat_title">
+        <th>Cb num</th>
+        <th>Cb type</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Aproximate?</th>
+        <th>Notes</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @call_boxes.each do |call_box| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><%= link_to layer_call_box_path(@layer, call_box) do %><h2><%= call_box.cb_num %></h2><% end %></td>
+          <td><%= call_box.cb_type %></td>
+          <td><%= call_box.latitude %></td>
+          <td><%= call_box.longitude %></td>
+          <td><%= call_box.aproximate %></td>
+          <td><%= call_box.notes %></td>
+          <td><%= link_to 'Edit', edit_layer_call_box_path(@layer, call_box), :class => 'edit-link' %></td>
+          <td><%= link_to 'Remove', layer_call_box_path(@layer, call_box), :confirm => 'Are you sure?', :method => :delete, :class => 'cancel-link' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Call box', new_layer_call_box_path %>
+<%= link_to 'New Call box', new_layer_call_box_path, :class => 'link-button' %>
