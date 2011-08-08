@@ -68,7 +68,7 @@ class CrimeAlertsController < ApplicationController
 
     respond_to do |format|
       if @crime_alert.update_attributes(params[:crime_alert])
-        format.html { redirect_to(@crime_alert, :notice => 'Crime Alert was successfully updated.') }
+        format.html { redirect_to([@layer, @crime_alert], :notice => 'Crime Alert was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

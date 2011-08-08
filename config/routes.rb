@@ -8,11 +8,9 @@ Geo::Application.routes.draw do
     resources :paths
     resources :polygons
     resources :crime_alerts
-    resources :call_boxes do
-      resources :cb_tests, :as => "test"
-    end
+    resources :call_boxes
   end
-
+  resources :cb_tests
   resources :import_tables
   post 'import_tables/:id' => 'import_tables#merge'
 

@@ -9,8 +9,8 @@ class LayersController < ApplicationController
       format.xml  { render :xml => @layers }
       format.js { render :json => @layers.to_json(
             :include => {
-              :call_boxes => {},
-              :crime_alerts => { :only => [:latitude, :longitude]},
+              :call_boxes => { :only => [:latitude, :longitude, :cb_num]},
+              :crime_alerts => { :only => [:latitude, :longitude, :happened]},
               :paths => {
                 :include => { :coords => {
                   :only => [:position, :latitude, :longitude]
@@ -37,8 +37,8 @@ class LayersController < ApplicationController
       format.kml  # show.kml.builder
       format.js { render :json => @layer.to_json(
         :include => {
-          :call_boxes => {},
-          :crime_alerts => { :only => [:latitude, :longitude]},
+          :call_boxes => { :only => [:latitude, :longitude, :cb_num]},
+          :crime_alerts => { :only => [:latitude, :longitude, :happened]},
           :paths => {
             :include => { :coords => {
               :only => [:position, :latitude, :longitude]

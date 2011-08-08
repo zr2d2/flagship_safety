@@ -2,7 +2,7 @@
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
   # ==> CAS configuration
-  config.cas_base_url = "https://login.rpi.edu/cas"
+  config.cas_base_url = "https://cas-auth.rpi.edu/cas"
 
   # you can override these if you need to, but cas_base_url is usually enough
   # config.cas_login_url = "https://cas.myorganization.com/login"

@@ -22,6 +22,7 @@ class CallBoxesController < ApplicationController
   # GET /call_boxes/1.xml
   def show
     @call_box = CallBox.find(params[:id])
+    @cb_tests = CbTest.find(:all, :conditions => {:cb_number => @call_box.cb_num})
 
     respond_to do |format|
       format.html # show.html.erb
@@ -68,7 +69,7 @@ class CallBoxesController < ApplicationController
 
     respond_to do |format|
       if @call_box.update_attributes(params[:call_box])
-        format.html { redirect_to([@layer, @call_box], :notice => 'Call box was successfully updated.') }
+        format.html { redirect_to([@layer, @call_box], :notice => 'Call Box was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

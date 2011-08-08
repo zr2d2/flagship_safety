@@ -1,11 +1,4 @@
 class CbTestsController < ApplicationController
-  before_filter :get_layer
-
-  # The before_filter action to get the current layer for
-  # for all the polygons.
-  def get_layer
-    @layer = Layer.find(params[:layer_id])
-  end
 
   # GET /cb_tests
   # GET /cb_tests.xml
@@ -22,6 +15,8 @@ class CbTestsController < ApplicationController
   # GET /cb_tests/1.xml
   def show
     @cb_test = CbTest.find(params[:id])
+    @call_box = CallBox.find(:first, :conditions =>{:cb_num => @cb_test.cb_number})
+    @layer = Layer.find(:first,:conditions =>{:id => @call_box.layer_id})
 
     respond_to do |format|
       format.html # show.html.erb

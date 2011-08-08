@@ -44,12 +44,21 @@ function add_point_to_map(point, map, options){
     content: point.notes
   });
   
-  var opts = {
-    position: new google.maps.LatLng(point.latitude, point.longitude), 
-    map: map,
-    title: point.cb_num.toString()
-  };
-  
+  if(point.cb_num){
+    var opts = {
+      position: new google.maps.LatLng(point.latitude, point.longitude), 
+      map: map,
+      title: point.cb_num.toString()
+    };
+  }
+  else if(point.happened){
+    var opts = {
+      position: new google.maps.LatLng(point.latitude, point.longitude),
+      map: map,
+      title: point.happened
+    };
+  }
+
   jQuery.extend(opts, options);
     
   var marker = new google.maps.Marker(opts);

@@ -1,32 +1,32 @@
 <% content_for :title, "Icons" %>
-
 <h2 class="breadcrumb">
-  <%= link_to "Home", root_url %>
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
 </h2>
 <div class="main-title">Icons</div>
 <div class="mc-indent">
-<% if !@icons.empty? %>
-  <table cellpadding="0" cellspacing="0" width="100%" class="elements" style="margin-bottom:20px;">
-    <thead>
-      <tr>
-       <th>Name</th>
-       <th>Owner</th>
-       <th></th>
-       <th></th>
-     </tr>
-  </thead>
-  <tbody>
-<% @icons.each do |icon| %>
-  <tr>
-    <td><%= icon.name %></td>
-    <td><%= icon.user.name unless icon.user.nil? %></td>
-    <td><%= image_tag icon.image.url(:small) %></td>
-    <td><%= link_to 'Edit', edit_icon_path(icon) if can? :update, icon %> &nbsp;
-    <%= link_to 'Destroy', icon, :confirm => 'Are you sure?', :method => :delete if can? :delete, icon %></td>
-  </tr>
-<% end %>
-  </tbody>
-</table>
-<% end %>
-<%= link_to 'Add', new_icon_path, :class => "link-button" if can? :create, Icon %>
+  <% if !@icons.empty? %>
+    <table cellpadding="0" cellspacing="0" width="100%" class="elements" style="margin-bottom:20px;">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Owner</th>
+          <th>Image</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @icons.each do |icon| %>
+        <tr>
+          <td><%= link_to icon_path(icon) do %><h2><%= icon.name %></h2><% end %></td>
+          <td><%= icon.user.name unless icon.user.nil? %></td>
+          <td><%= image_tag icon.image.url(:small) %></td>
+          <td><%= link_to 'Edit', edit_icon_path(icon), :class => 'edit-link' if can? :update, icon %></td>
+          <td><%= link_to 'Remove', icon, :confirm => 'Are you sure?', :method => :delete, :class => 'cancel-link' if can? :delete, icon %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <%= link_to 'Add', new_icon_path, :class => "link-button" if can? :create, Icon %>
 </div>
