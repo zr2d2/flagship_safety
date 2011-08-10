@@ -11,10 +11,10 @@
   map = setup_map(midpoint, 0);
   points_on_map = 0;
   
-  $.getJSON('<%= layer_path(:format => :js) %>', function(data) {
+  $.getJSON('<%= layer_path(:format => :js, :methods => :icon) %>', function(data) {
     var map_bounds = new google.maps.LatLngBounds();
     $.each(data.layer.call_boxes, function(index, point){
-      marker = add_point_to_map(point, map);
+      marker = add_point_to_map(point, map, {icon: point.point.icon});
       map_bounds.extend(marker.position);
       points_on_map++;
     });
