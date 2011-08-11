@@ -1,6 +1,6 @@
 class Layer < ActiveRecord::Base
   # Relations
-  has_one :icon
+  belongs_to :icon
   has_many :paths
   has_many :polygons
   has_many :call_boxes

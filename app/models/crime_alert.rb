@@ -7,4 +7,11 @@ class CrimeAlert < ActiveRecord::Base
   validates :latitude, :numericality => true, :inclusion => { :in => -90..90}
 
   include Geometry
+
+  # Find a url to the icon for a point, if one exists.
+  def icon
+    if !layer.icon.nil?
+      layer.icon.image.url(:smaller)
+    end
+  end
  end
