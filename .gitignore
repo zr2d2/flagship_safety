@@ -6,3 +6,5 @@ tmp/restart.txt
 public/.htaccess
 doc/app
 public/doc
+public/system
+

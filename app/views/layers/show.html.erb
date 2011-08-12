@@ -7,47 +7,26 @@
 <% content_for :js_ready do %>
   <% Coord.include_root_in_json = false %>
   var midpoint = <%=raw midpoint(@layer.call_boxes, @layer.crime_alerts).to_json() %>;
-  
   map = setup_map(midpoint, 0);
   points_on_map = 0;
-  
-  $.getJSON('<%= layer_path(:format => :js, :methods => :icon) %>', function(data) {
-    var map_bounds = new google.maps.LatLngBounds();
-    $.each(data.layer.call_boxes, function(index, point){
-      marker = add_point_to_map(point, map, {icon: point.point.icon});
-      map_bounds.extend(marker.position);
-      points_on_map++;
-    });
-    $.each(data.layer.crime_alerts, function(index, point){
-      marker = add_point_to_map(point, map);
-      map_bounds.extend(marker.position);
-      points_on_map++;
-    });
-    $.each(data.layer.paths, function(index, path){
-      var polyline = new google.maps.Polyline();
-      polyline.setMap(map);
-      
-      $.each(path.coords, function(index, coord){
-        pos = add_point_to_polyline(coord, polyline);
-        map_bounds.extend(pos);
-        points_on_map++;
-      });
-    });
-    $.each(data.layer.polygons, function(index, polygon_data){
-      var polygon = new google.maps.Polygon();
-      polygon.setMap(map);
-      $.each(polygon_data.coords, function(index, coord){
-        add_point_to_polygon(coord, polygon);
-        map_bounds.extend(pos);
-        points_on_map++;
-      });
-    });
-    if(points_on_map > 0){
-      map.fitBounds(map_bounds);
-    }
-  });
-<% end %>
 
+  var data = <%=raw @layer.to_json(:include => {:call_boxes=>{:methods => :icon}, :crime_alerts=>{:methods => :icon}}) %>;
+  var map_bounds = new google.maps.LatLngBounds();
+  $.each(data.layer.call_boxes, function(index, point){
+    marker = add_point_to_map(point, map, {icon: point.icon});
+    map_bounds.extend(marker.position);
+    points_on_map++;
+  });
+  $.each(data.layer.crime_alerts, function(index, point){
+    marker = add_point_to_map(point, map);
+    map_bounds.extend(marker.position);
+    points_on_map++;
+  });
+  if(points_on_map > 0){
+    map.fitBounds(map_bounds);
+  }
+<% end %>
+	
 <% content_for :title, @layer.name %>
 
 <h2 class="breadcrumb">
