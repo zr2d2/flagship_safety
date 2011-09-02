@@ -3,6 +3,7 @@
 <h2 class="breadcrumb">
         <%= link_to "Home", root_path %>&nbsp;/&nbsp;
         <%= link_to @layer.name, @layer %>&nbsp;/&nbsp;
+        <%= link_to @call_box.cb_num, [@layer, @call_box] %>
 </h2>
 
 <div class="main-title">
@@ -11,5 +12,3 @@
 <span>
         <%= render 'form' %>
 </span>
-
-<%= link_to 'Show', [@layer, @call_box] %>

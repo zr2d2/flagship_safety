@@ -1,37 +1,47 @@
-<h1>Listing cb_tests</h1>
+<% content_for :title, "Call Box Tests" %>
 
-<table>
-  <tr>
-    <th>Cb number</th>
-    <th>Tested on</th>
-    <th>Keypad</th>
-    <th>Key light</th>
-    <th>Call fn</th>
-    <th>Dtmf</th>
-    <th>Blue light</th>
-    <th>Response test</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+</h2>
 
-<% @cb_tests.each do |cb_test| %>
-  <tr>
-    <td><%= cb_test.cb_number %></td>
-    <td><%= cb_test.tested_on %></td>
-    <td><%= cb_test.keypad %></td>
-    <td><%= cb_test.key_light %></td>
-    <td><%= cb_test.call_fn %></td>
-    <td><%= cb_test.DTMF %></td>
-    <td><%= cb_test.blue_light %></td>
-    <td><%= cb_test.response_test %></td>
-    <td><%= link_to 'Show', cb_test_path(cb_test) %></td>
-    <td><%= link_to 'Edit', edit_cb_test_path(cb_test) %></td>
-    <td><%= link_to 'Destroy', cb_test_path(cb_test), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div class="main-title">Call Box Tests</div>
+
+<div class="hr_dl flush"><%= image_tag("bl.png", :alt => "") %></div>
 
 <br />
 
-<%= link_to 'New Cb test', new_cb_test_path %>
+<div class="mc-indent">
+  <h2 id="cb_tests"><%= link_to 'Add', new_cb_test_path, :class => "link-button" %></h2>
+  <table cellpadding="0" cellspacing="0" width="100%" class="elements">
+    <thead>
+      <tr class="cat_title">
+        <th>Cb number</th>
+        <th>Tested on</th>
+        <th>Keypad</th>
+        <th>Key light</th>
+        <th>Call fn</th>
+        <th>Dtmf</th>
+        <th>Blue light</th>
+        <th>Response test</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cb_tests.each do |cb_test| %>
+      <tr>
+        <td><%= link_to cb_test_path(cb_test) do %><h2><%= cb_test.cb_number %></h2><% end %></td>
+        <td><%= cb_test.tested_on %></td>
+        <td><%= cb_test.keypad %></td>
+        <td><%= cb_test.key_light %></td>
+        <td><%= cb_test.call_fn %></td>
+        <td><%= cb_test.DTMF %></td>
+        <td><%= cb_test.blue_light %></td>
+        <td><%= cb_test.response_test %></td>
+        <td><%= link_to 'Edit', edit_cb_test_path(cb_test), :class => 'edit-link' %></td>
+        <td><%= link_to 'Remove', cb_test_path(cb_test), :confirm => 'Are you sure?', :method => :delete, :class => 'cancel-link' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

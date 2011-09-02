@@ -1,9 +1,16 @@
-<% content_for :title, "Editing Test For Call Box{@call_box.cb_num}" %>
-<h1 class="main-title">
-	Editing Test
-	<span><%= link_to 'Cancel and Return', layer_call_box_test_index_path(@layer, @call_box), :class => 'cancel-link' %></span>
-</h1>
+<% content_for :title do %>
+  Editing Test For Call Box <%= @cb_test.cb_number.to_s %>
+<% end %>
+<h2 class="breadcrumb">
+        <%= link_to "Home", root_path %>&nbsp;/&nbsp;
+        <%= link_to "Tests", cb_tests_path %>&nbsp;/&nbsp;
+        <%= link_to @cb_test.cb_number.to_s, cb_test_path(@cb_test) %>
+</h2>
 
-<%= render 'form' %>
+<div class="main-title">
+        <h1>Editing Test For Call Box <%= @cb_test.cb_number.to_s %></h1>
+</div>
+<span>
+        <%= render 'form' %>
+</span>
 
-<%= link_to 'show', layer_call_box_test_path(@layer, @call_box, @cb_test) %>
