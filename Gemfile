@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.12'
+gem "rails", "~> 4.0.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,7 +15,7 @@ gem "paperclip", "~> 2.3"
 
 # Authentication
 gem 'devise'
-gem 'devise_cas_authenticatable', :git => "git://github.com/bamnet/devise_cas_authenticatable.git"
+gem "devise_cas_authenticatable", "~> 1.3.2"
 
 # Authentication
 gem "cancan"
