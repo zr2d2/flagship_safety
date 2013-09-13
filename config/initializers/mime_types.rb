@@ -3,9 +3,3 @@
 # Add new mime types for use in respond_to blocks:
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
-
-#Use for development
-Mime::Type.register "text/plain", :kml
-
-#Switch for production
-#Mime::Type.register "application/vnd.google-earth.kml+xml", :kml
