@@ -7,7 +7,7 @@ class Layer < ActiveRecord::Base
   has_many :crime_alerts
   has_and_belongs_to_many :users
 
-  default_scope order(:name)
+  default_scope { order(:name) }
 
   # Validations
   validates :name, :presence => true

@@ -3,7 +3,7 @@ class CallBox < ActiveRecord::Base
   belongs_to :layer
   has_many :cb_test
 
-  default_scope order(:cb_num)
+  default_scope { order(:cb_num) }
 
   # Validations
   # validates :longitude, :numericality => true, :inclusion => { :in => -180..180}
@@ -20,4 +20,4 @@ class CallBox < ActiveRecord::Base
       layer.icon.image.url(:smaller)
     end
   end
- end
+end
