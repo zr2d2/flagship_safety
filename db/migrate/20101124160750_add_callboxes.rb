@@ -23,7 +23,7 @@ class AddCallboxes < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :pointss, :is_callbox
+    remove_column :points, :is_callbox
     drop_table :callboxs
   end
 end
