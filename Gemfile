@@ -8,7 +8,7 @@ gem "rails", '~> 4.1.0.rc1'
 gem "sqlite3", '~> 1.3.8'
 
 # Use MySQL in prduction
-gem 'mysql2', group: :production
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.1'
