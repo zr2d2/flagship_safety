@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -8,11 +9,11 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706183943) do
+ActiveRecord::Schema.define(version: 20140223173414) do
 
-  create_table "call_boxes", :force => true do |t|
+  create_table "call_boxes", force: true do |t|
     t.integer  "cb_num"
     t.string   "cb_type"
     t.decimal  "latitude"
@@ -24,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.boolean  "aproximate"
   end
 
-  create_table "cb_tests", :force => true do |t|
+  create_table "cb_tests", force: true do |t|
     t.integer  "cb_number"
     t.datetime "tested_on"
     t.boolean  "keypad"
@@ -44,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.datetime "updated_at"
   end
 
-  create_table "coords", :force => true do |t|
-    t.decimal  "latitude",   :precision => 15, :scale => 10, :default => 0.0
-    t.decimal  "longitude",  :precision => 15, :scale => 10, :default => 0.0
+  create_table "coords", force: true do |t|
+    t.decimal  "latitude",   precision: 15, scale: 10, default: 0.0
+    t.decimal  "longitude",  precision: 15, scale: 10, default: 0.0
     t.integer  "position"
     t.string   "line_type"
     t.integer  "line_id"
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.datetime "updated_at"
   end
 
-  create_table "crime_alerts", :force => true do |t|
+  create_table "crime_alerts", force: true do |t|
     t.text     "body"
     t.datetime "happened"
     t.string   "location"
@@ -63,14 +64,14 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.boolean  "legitimate"
     t.integer  "type_id"
     t.boolean  "processed"
-    t.integer  "latitude",   :limit => 10
-    t.integer  "longitude",  :limit => 10
+    t.integer  "latitude",   limit: 10
+    t.integer  "longitude",  limit: 10
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "layer_id"
   end
 
-  create_table "icons", :force => true do |t|
+  create_table "icons", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.string   "image_file_name"
@@ -79,10 +80,10 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.string   "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_public",          :default => true
+    t.boolean  "is_public",          default: true
   end
 
-  create_table "import_cells", :force => true do |t|
+  create_table "import_cells", force: true do |t|
     t.integer  "import_table_id"
     t.integer  "row_index"
     t.integer  "column_index"
@@ -91,24 +92,25 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.datetime "updated_at"
   end
 
-  add_index "import_cells", ["import_table_id"], :name => "index_import_cells_on_import_table_id"
+  add_index "import_cells", ["import_table_id"], name: "index_import_cells_on_import_table_id"
 
-  create_table "import_tables", :force => true do |t|
+  create_table "import_tables", force: true do |t|
     t.string   "original_path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "layers", :force => true do |t|
+  create_table "layers", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "icon_id"
     t.boolean  "is_public"
+    t.string   "color"
   end
 
-  create_table "paths", :force => true do |t|
+  create_table "paths", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "layer_id"
@@ -116,7 +118,7 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.datetime "updated_at"
   end
 
-  create_table "polygons", :force => true do |t|
+  create_table "polygons", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "layer_id"
@@ -124,18 +126,14 @@ ActiveRecord::Schema.define(:version => 20110706183943) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "fullname"
+  create_table "users", force: true do |t|
+    t.string   "email",              default: "", null: false
     t.string   "role"
-    t.string   "username"
-    t.integer  "sign_in_count",      :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "encrypted_password", default: "", null: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

@@ -71,6 +71,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.2.3)
     multi_json (1.8.4)
+    mysql2 (0.3.16)
     orm_adapter (0.5.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -150,6 +151,7 @@ DEPENDENCIES
   formtastic (~> 2.2.1)
   jbuilder (~> 2.0.3)
   jquery-rails (~> 3.1.0)
+  mysql2
   paperclip (~> 4.1.1)
   rails (~> 4.1.0.rc1)
   rdoc (~> 4.1.1)
