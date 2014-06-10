@@ -14,11 +14,11 @@
 /*##########  GLOBAL RESET AND MASTER TAGS  ##########*/
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertica-align:baseline; }
 html { font-family:"Myriad Web", Myriad, Arial, sans-serif; }
-body { background:#FFFFFF url(../images/customized/woodplanks.jpg) repeat scroll left top; }
+body { background:#FFFFFF url(customized/woodplanks.jpg) repeat scroll left top; }
 #map_canvas{  font-weight:normal; font-size:0.45em; }
 
 /*##########  MAIN HEADERS  ##########*/
-div.main-title { margin:0px; margin-bottom:30px; padding:0px; padding-left:34px; padding-right:34px; background:url(../images/layout/h1block.png) top left no-repeat; font-size:2.2em; font-weight:600; color:#333; }
+div.main-title { margin:0px; margin-bottom:30px; padding:0px; padding-left:34px; padding-right:34px; background:url(layout/h1block.png) top left no-repeat; font-size:2.2em; font-weight:600; color:#333; }
 div.main-title span { color:#666; font-weight:normal; font-size:0.45em; padding:0px; margin:0px; margin-top:4px; display:block; }
 div.main-title span a { color:#666; font-weight:bold; }
 div.main-title span a.cancel-link { color:#dc0000 !important; }
@@ -44,9 +44,9 @@ h1 a.link-button { font-size:0.4em; }
 h1 a.link-button:hover, h2 a.link-button:hover { background:#339933; -moz-box-shadow: 0 0 0 #666; -webkit-box-shadow: 0 0 0 #666; }
 
 /*##########  HORIZONTAL RULE  ##########*/
-div.hr_dl { background:url(../images/layout/hr_dl.png) top left repeat-x; height:2px; }
+div.hr_dl { background:url(layout/hr_dl.png) top left repeat-x; height:2px; }
 #sb-mid div.hr_dl { margin-left:-20px; }
-div.hr_dl2 { background:url(../images/layout/hr_dl2.png) top left repeat-x; height:2px; }
+div.hr_dl2 { background:url(layout/hr_dl2.png) top left repeat-x; height:2px; }
 
 /*##########  TIPSY CAPTIONS  ##########*/
 .tipsy { padding: 5px; font-size: 10px; opacity: 0.8; filter: alpha(opacity=80); background-repeat: no-repeat; }
@@ -67,7 +67,7 @@ div.hr_dl2 { background:url(../images/layout/hr_dl2.png) top left repeat-x; heig
 .error { background:red !important; color:#FFF !important; }
 
 /*##########  WRAP  ##########*/
-#wrap { width:70%; margin:0px auto; margin-bottom:8px; min-width:940px; background:#f5f5f5 url(../images/layout/wrap_bg.png) top left repeat-x; -moz-border-radius:12px; -webkit-border-radius:12px; -moz-border-radius-topleft:0px; -webkit-border-top-left-radius:0px; -moz-border-radius-topright:0px; -webkit-border-top-right-radius:0px; -moz-box-shadow: 0 0 0.5em #000; -webkit-box-shadow: 0 0 0.5em #000; }
+#wrap { width:70%; margin:0px auto; margin-bottom:8px; min-width:940px; background:#f5f5f5 url(layout/wrap_bg.png) top left repeat-x; -moz-border-radius:12px; -webkit-border-radius:12px; -moz-border-radius-topleft:0px; -webkit-border-top-left-radius:0px; -moz-border-radius-topright:0px; -webkit-border-top-right-radius:0px; -moz-box-shadow: 0 0 0.5em #000; -webkit-box-shadow: 0 0 0.5em #000; }
 #wrap-padding { padding:40px 20px; padding-bottom:50px; }
 
 /*##########  HEADER  ##########*/
@@ -81,7 +81,7 @@ div.hr_dl2 { background:url(../images/layout/hr_dl2.png) top left repeat-x; heig
 #footer a { color:#ccc; }
 
 /*##########  TOP BAR  ##########*/
-#topbar { background:url(../images/layout/tb_bg.png) top left repeat-x; -moz-border-radius:12px; -webkit-border-radius:12px; -moz-border-radius-topleft:0px; -webkit-border-top-left-radius:0px; -moz-border-radius-topright:0px; -webkit-border-top-right-radius:0px; -moz-box-shadow: 0 0.15em 0.2em #333; -webkit-box-shadow: 0 0.15em 0.2em #333; }
+#topbar { background:url(layout/tb_bg.png) top left repeat-x; -moz-border-radius:12px; -webkit-border-radius:12px; -moz-border-radius-topleft:0px; -webkit-border-top-left-radius:0px; -moz-border-radius-topright:0px; -webkit-border-top-right-radius:0px; -moz-box-shadow: 0 0.15em 0.2em #333; -webkit-box-shadow: 0 0.15em 0.2em #333; }
 #topbar-padding { padding:5px 18px; padding-left:12px; }
 #topbar { color:#eee; font-weight:normal; }
 #topbar h1 { font-weight:normal; }
@@ -90,7 +90,7 @@ div.hr_dl2 { background:url(../images/layout/hr_dl2.png) top left repeat-x; heig
 #topbar-right { padding:8px 0px; padding-top:14px; float:right; width:44%; text-align:right; }
 
 /*##########  CATEGORIES TREE  ##########*/
-#cat_tree { background:#99cccc url(../images/layout/tree_bg.png) bottom left repeat-x; margin:0px; border-bottom:solid 1px #eee; }
+#cat_tree { background:#99cccc url(layout/tree_bg.png) bottom left repeat-x; margin:0px; border-bottom:solid 1px #eee; }
 #cat_tree_inset { overflow-y:scroll; height:250px; border-top:solid 1px #666; }
 #cat_tree-padding { padding:15px 25px 20px 8px; border-top:solid 1px #eee; }
 #cat_tree ul { border-left:dotted 1px #006699; font-size:0.95em; margin:0px; padding:0px; margin-left:20px; }
@@ -136,7 +136,7 @@ div.img_icon { background:url(../images/icons/imageicon.png) center center no-re
 /*##########################################################################*/
 
 /*##########  DOWNLOAD BLOCK  ##########*/
-#dl { background:#ddd url(  /layout/dlbg.png) top left repeat-x; }
+#dl { background:#ddd url(/app/assets/images/layout/dlbg.png) top left repeat-x; }
 #dl-padding { padding:18px 34px 18px 34px; }
 #dl.fp #dl-padding { padding:24px 34px; }
 #dl_icon { float:left; width:25%; text-align:center; }
@@ -216,8 +216,8 @@ div.form_group textarea { width:70%; background:#FFEFEF; border:solid 1px #999; 
 /*##########  DOCUMENTS LIST VIEW  ##########*/
 table.elements {-moz-border-radius: 12px 12px 0 0; font-size:0.9em; /* border:1px solid #CCCCCC; */}
 table.elements td { font-size:1.06em; height:35px; text-align:center; vertical-align:center; padding:3px 9px; margin:0; }
-table.elements tr.odd td { background:#e5e5e5 url(../images/layout/docs_odd_bg.png) top left repeat-x; }
-table.elements tr.even td { background:#ffffff url(../images/layout/docs_even_bg.png) top left repeat-x; }
+table.elements tr.odd td { background:#e5e5e5 url(layout/docs_odd_bg.png) top left repeat-x; }
+table.elements tr.even td { background:#ffffff url(layout/docs_even_bg.png) top left repeat-x; }
 table.elements thead th { background: #605B5B; color: #ffffff; padding:6px 10px; height: auto; letter-spacing:0.25em; font-size:0.65em; text-transform:uppercase; }
 table.elements td.doc_img { width:42px; text-align: center; }
 table.elements p { text-align:left; margin:0px; }
