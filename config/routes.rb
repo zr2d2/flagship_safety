@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  root 'layers#index'
   devise_for :users
 
-  root 'layers#index'
   resources :icons, :except => :show
   resources :layers do
     resources :points
