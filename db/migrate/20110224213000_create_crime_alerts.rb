@@ -9,8 +9,8 @@ class CreateCrimeAlerts < ActiveRecord::Migration
       t.boolean  "legitimate"
       t.integer  "type_id"
       t.boolean  "processed"
-      t.integer  "latitude",   :limit => 10, :precision => 10, :scale => 0
-      t.integer  "longitude",  :limit => 10, :precision => 10, :scale => 0
+      t.decimal  "latitude",   :limit => 10, :precision => 10, :scale => 0
+      t.decimal  "longitude",  :limit => 10, :precision => 10, :scale => 0
 
       t.timestamps
     end
