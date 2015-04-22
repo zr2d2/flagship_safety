@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.boolean  "legitimate"
     t.integer  "type_id"
     t.boolean  "processed"
-    t.integer  "latitude",   limit: 10
-    t.integer  "longitude",  limit: 10
+    t.decimal  "latitude",   precision: 10, scale: 0
+    t.decimal  "longitude",  precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "layer_id"
+    t.integer  "layer_id"
   end
 
   create_table "icons", force: true do |t|
