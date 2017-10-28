@@ -9,7 +9,7 @@
     <%= f.input :blue_light %><br />
     <%= f.input :response_test %><br />
   <% end %>
-  <% f.buttons do %>
-    <%= f.commit_button %>
+  <% f.actions do %>
+    <%= f.action :submit, :as => :button %>
   <% end %>
 <% end %>
