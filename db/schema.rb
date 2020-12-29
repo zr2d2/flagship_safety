@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140223050649) do
 
-  create_table "call_boxes", force: true do |t|
+  create_table "call_boxes", force: :cascade do |t|
     t.integer  "cb_num"
     t.string   "cb_type"
     t.decimal  "latitude"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.boolean  "aproximate"
   end
 
-  create_table "cb_tests", force: true do |t|
+  create_table "cb_tests", force: :cascade do |t|
     t.integer  "cb_number"
     t.datetime "tested_on"
     t.boolean  "keypad"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.datetime "updated_at"
   end
 
-  create_table "coords", force: true do |t|
+  create_table "coords", force: :cascade do |t|
     t.decimal  "latitude",   precision: 15, scale: 10, default: 0.0
     t.decimal  "longitude",  precision: 15, scale: 10, default: 0.0
     t.integer  "position"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.datetime "updated_at"
   end
 
-  create_table "crime_alerts", force: true do |t|
+  create_table "crime_alerts", force: :cascade do |t|
     t.text     "body"
     t.datetime "happened"
     t.string   "location"
@@ -64,14 +64,14 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.boolean  "legitimate"
     t.integer  "type_id"
     t.boolean  "processed"
-    t.decimal  "latitude",   precision: 10, scale: 0
-    t.decimal  "longitude",  precision: 10, scale: 0
+    t.decimal  "latitude",   precision: 10
+    t.decimal  "longitude",  precision: 10
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "layer_id"
   end
 
-  create_table "icons", force: true do |t|
+  create_table "icons", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
     t.string   "image_file_name"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.boolean  "is_public",          default: true
   end
 
-  create_table "import_cells", force: true do |t|
+  create_table "import_cells", force: :cascade do |t|
     t.integer  "import_table_id"
     t.integer  "row_index"
     t.integer  "column_index"
@@ -94,13 +94,13 @@ ActiveRecord::Schema.define(version: 20140223050649) do
 
   add_index "import_cells", ["import_table_id"], name: "index_import_cells_on_import_table_id"
 
-  create_table "import_tables", force: true do |t|
+  create_table "import_tables", force: :cascade do |t|
     t.string   "original_path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "layers", force: true do |t|
+  create_table "layers", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.string   "color"
   end
 
-  create_table "paths", force: true do |t|
+  create_table "paths", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "layer_id"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.datetime "updated_at"
   end
 
-  create_table "polygons", force: true do |t|
+  create_table "polygons", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "layer_id"
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 20140223050649) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

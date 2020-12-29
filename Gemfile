@@ -29,7 +29,7 @@ gem 'responders', '~> 2.0'
 gem "jquery-rails", '~> 3.1.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem "turbolinks", '~> 2.2.1'
+gem "turbolinks", '~> 2.3'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0.3'
@@ -57,7 +57,7 @@ gem 'devise', '~> 4.7.1'
 # Authentication
 gem "cancan", '~> 1.6.10'
 
-gem 'formtastic', '~> 2.2.1'
+gem 'formtastic', '~> 3.1', '>= 3.1.5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
