@@ -26,7 +26,7 @@ gem 'responders', '~> 2.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem "jquery-rails", '~> 3.1.0'
+gem "jquery-rails", '~> 3.1.3'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem "turbolinks", '~> 2.3'
