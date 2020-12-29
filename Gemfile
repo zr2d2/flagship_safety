@@ -44,7 +44,7 @@ gem 'rdoc', '~> 4.1.1', group: :doc
 gem "paperclip", '~> 4.1.1'
 
 # Authentication
-gem 'devise', '~> 3.2.3'
+gem 'devise', '~> 4.7.1'
 
 # provide CAS support
 #gem "devise_cas_authenticatable", "~> 1.3.2"
