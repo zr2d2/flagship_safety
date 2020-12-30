@@ -46,7 +46,7 @@ gem 'web-console', '~> 2.0', group: :development
 gem 'rdoc', '~> 4.1.1', group: :doc
 
 # attachments
-gem "paperclip", '~> 4.1.1'
+gem "paperclip", '~> 5.2.0'
 
 # Authentication
 gem 'devise', '~> 4.7.1'
