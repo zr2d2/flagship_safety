@@ -1,4 +1,4 @@
-class DeletePoints < ActiveRecord::Migration
+class DeletePoints < ActiveRecord::Migration[5.1]
   def self.up
     drop_table :points
   end

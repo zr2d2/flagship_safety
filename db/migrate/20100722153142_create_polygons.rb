@@ -1,4 +1,4 @@
-class CreatePolygons < ActiveRecord::Migration
+class CreatePolygons < ActiveRecord::Migration[5.1]
   def self.up
     create_table :polygons do |t|
       t.string :name

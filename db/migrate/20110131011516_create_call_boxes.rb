@@ -1,4 +1,4 @@
-class CreateCallBoxes < ActiveRecord::Migration
+class CreateCallBoxes < ActiveRecord::Migration[5.1]
   def self.up
     create_table :call_boxes do |t|
       t.integer :cb_num

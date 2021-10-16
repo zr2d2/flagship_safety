@@ -1,4 +1,4 @@
-class CreateIcons < ActiveRecord::Migration
+class CreateIcons < ActiveRecord::Migration[5.1]
   def self.up
     create_table :icons do |t|
       t.string :name

@@ -1,4 +1,4 @@
-class CreateCrimeAlerts < ActiveRecord::Migration
+class CreateCrimeAlerts < ActiveRecord::Migration[5.1]
   def self.up
     create_table :crime_alerts do |t|
       t.text :body

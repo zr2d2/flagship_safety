@@ -1,4 +1,4 @@
-class CreateLayers < ActiveRecord::Migration
+class CreateLayers < ActiveRecord::Migration[5.1]
   def self.up
     create_table :layers do |t|
       t.string :name

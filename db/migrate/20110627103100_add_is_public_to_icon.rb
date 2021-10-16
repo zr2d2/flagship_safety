@@ -1,4 +1,4 @@
-class AddIsPublicToIcon < ActiveRecord::Migration
+class AddIsPublicToIcon < ActiveRecord::Migration[5.1]
   def self.up
     add_column :icons, :is_public, :boolean, :default => true
   end

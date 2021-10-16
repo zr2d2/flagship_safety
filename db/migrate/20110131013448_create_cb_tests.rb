@@ -1,4 +1,4 @@
-class CreateCbTests < ActiveRecord::Migration
+class CreateCbTests < ActiveRecord::Migration[5.1]
   def self.up
     create_table :cb_tests do |t|
       t.integer :cb_number

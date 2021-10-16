@@ -1,4 +1,4 @@
-class AddLayerIdToCrimeAlerts < ActiveRecord::Migration
+class AddLayerIdToCrimeAlerts < ActiveRecord::Migration[5.1]
   def self.up
     add_column :crime_alerts, :layer_id, :integer
   end

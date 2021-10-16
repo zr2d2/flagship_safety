@@ -1,4 +1,4 @@
-class CreateImportCells < ActiveRecord::Migration
+class CreateImportCells < ActiveRecord::Migration[5.1]
   def self.up
     create_table :import_cells do |t|
       t.integer :import_table_id

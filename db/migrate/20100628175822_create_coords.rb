@@ -1,4 +1,4 @@
-class CreateCoords < ActiveRecord::Migration
+class CreateCoords < ActiveRecord::Migration[5.1]
   def self.up
     create_table :coords do |t|
       t.decimal :latitude, :precision => 15, :scale => 10, :default => 0
