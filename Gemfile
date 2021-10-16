@@ -35,7 +35,7 @@ gem "turbolinks", '~> 2.3'
 gem 'jbuilder', '~> 2.4'
 
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 2.2', group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem "spring", '~> 1.1.1', group: :development
@@ -43,7 +43,7 @@ gem "spring", '~> 1.1.1', group: :development
 gem 'web-console', group: :development
 
 # Use rdoc
-gem 'rdoc', '~> 4.3'
+gem "rdoc", "~> 6.3.1"
 
 # attachments
 gem "paperclip", '~> 5.2.0'
