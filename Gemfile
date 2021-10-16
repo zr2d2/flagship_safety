@@ -34,6 +34,8 @@ gem "turbolinks", '~> 2.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.4'
 
+gem "json", ">= 2.3.0"
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 2.2', group: :doc
 
