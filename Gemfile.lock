@@ -66,7 +66,7 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.10.0)
-    execjs (2.7.0)
+    execjs (2.8.1)
     ffi (1.12.2)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -170,7 +170,7 @@ GEM
       coffee-rails
     tzinfo (1.2.11)
       thread_safe (~> 0.1)
-    uglifier (2.4.0)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicorn (4.8.3)
