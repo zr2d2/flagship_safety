@@ -45,7 +45,7 @@ gem "spring", '~> 1.1.1', group: :development
 gem 'web-console', group: :development
 
 # Use rdoc
-gem "rdoc", "~> 6.3.1"
+gem "rdoc", "~> 6.3.4"
 
 # attachments
 gem "paperclip", '~> 5.2.0'
