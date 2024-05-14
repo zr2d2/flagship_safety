@@ -96,11 +96,11 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.1.2)
-    mini_portile2 (2.8.5)
+    mini_portile2 (2.8.6)
     minitest (5.18.0)
     mysql2 (0.4.10)
     nio4r (2.5.8)
-    nokogiri (1.16.2)
+    nokogiri (1.16.5)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     orm_adapter (0.5.0)
