@@ -65,10 +65,12 @@ gem 'formtastic', '~> 3.1', '>= 3.1.5'
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
- gem 'unicorn', '~> 6.1.0'
+gem 'unicorn', '~> 6.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'nokogiri', '~> 1.19.3'
