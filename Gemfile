@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.2'
+gem 'rails', '~> 7.1'
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", '~> 1.3.8'
+gem "sqlite3", "~> 2.0"
 
 # Use MySQL in prduction
-gem 'mysql2', '~> 0.4.10'
+gem 'mysql2', '~> 0.5.5'
 
 # Use SCSS for stylesheets
 gem 'sassc-rails'
@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1', '>= 4.1.1'
 
 #use responders gem
-gem 'responders', '~> 2.0'
+gem 'responders', '~> 3.0' 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -51,7 +51,7 @@ gem "rdoc", "~> 6.3.4"
 gem "paperclip", '~> 5.2.0'
 
 # Authentication
-gem 'devise', '~> 4.7.1'
+gem 'devise', '~> 5.0.0'
 
 # provide CAS support
 #gem "devise_cas_authenticatable", "~> 1.3.2"
@@ -65,7 +65,7 @@ gem 'formtastic', '~> 3.1', '>= 3.1.5'
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
- gem 'unicorn'
+ gem 'unicorn', '~> 6.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
