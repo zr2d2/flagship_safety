@@ -72,5 +72,3 @@ gem 'unicorn', '~> 6.1.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'nokogiri', '~> 1.19.3'
